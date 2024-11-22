@@ -14,7 +14,7 @@ class Type(db.Model):
 
 class Pokemon(db.Model):
     __tablename__= 'pokemon'
-    id = db.CColumn(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     image = db.Column(db.String(200), nullable=False)
 
