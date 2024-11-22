@@ -1,6 +1,6 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from flask import Flask, jsonify
+from flask_sqlalchemy import SQL
+from flask_migrate import MigrateAlchemy
 from src.models import db, Pokemon, Type
 
 app = Flask(__name__) #Crea la aplicacion Flask
