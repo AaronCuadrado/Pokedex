@@ -1,7 +1,14 @@
 from flask import Flask, jsonify
+from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
+app = Flask(__name__) #Crea la aplicacion Flask
 
+#Configuracion de la base de datos
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://pokedex.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
+
+#Conexion con la base de datos
+db = SQLAlchemy(app)
 #Ruta principal
 @app.route('/')
 def home():
