@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask_sqlalchemy import SQL
 from flask_migrate import MigrateAlchemy, Migrate
 from src.models import db, Pokemon, Type
+from src.routes import routes
 
 app = Flask(__name__) #Crea la aplicacion Flask
 
@@ -10,8 +11,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pokedex.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
 
 db.init_app(app)
-
 migrate = Migrate(app, db)
+
+app.register_blueprint(routes)
 
 #Ruta principal
 @app.route('/')
